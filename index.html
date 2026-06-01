@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antar Ruang dan Waktu: Sejarah Gedung Sate | Media Edukasi IPS</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Website edukasi interaktif IPS/Geografi mengenai konsep hubungan antar ruang dan waktu dengan studi kasus Sejarah Gedung Sate dan tata ruang sekitarnya di Bandung dari masa ke masa.">
+  <meta name="keywords" content="Antar Ruang dan Waktu, Gedung Sate, Bandung, Sejarah Gedung Sate, Tata Ruang, Geografi IPS, Media Pembelajaran Interaktif">
+  <meta name="author" content="Kelompok IPS Pendidikan Menengah">
+  
+  <!-- OpenGraph Social Tags -->
+  <meta property="og:title" content="Antar Ruang dan Waktu: Sejarah Gedung Sate">
+  <meta property="og:description" content="Menelusuri sejarah perubahan ruang dan waktu melalui perkembangan Gedung Sate, Bandung.">
+  <meta property="og:image" content="https://images.weserv.nl/?url=https://idetrips.com/wp-content/uploads/2018/10/Tempat-Wisata-di-Bandung-Gambar-Gedung-Sate.jpg">
+  <meta property="og:type" content="website">
+  
+  <!-- Style Links -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- LeafletJS Map CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+</head>
+<body>
+
+  <!-- ================= 1. STICKY NAVBAR ================= -->
+  <nav id="navbar" class="navbar">
+    <div class="container nav-container">
+      <a href="#beranda" class="nav-logo" id="logo-nav">
+        <i data-lucide="compass"></i>
+        <span>Ruang & Waktu</span>
+      </a>
+      
+      <ul class="nav-links" id="nav-links">
+        <li class="nav-item"><a href="#beranda" class="active" id="link-home">Beranda</a></li>
+        <li class="nav-item"><a href="#pengantar" id="link-intro">Konsep</a></li>
+        <li class="nav-item"><a href="#materi" id="link-materi">Materi</a></li>
+        <li class="nav-item"><a href="#studi-kasus" id="link-cases">Studi Kasus</a></li>
+        <li class="nav-item"><a href="#galeri" id="link-gallery">Galeri</a></li>
+        <li class="nav-item"><a href="#tim" id="link-team">Profil Tim</a></li>
+      </ul>
+      
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Ganti Tema" id="theme-toggler">
+          <i data-lucide="moon"></i>
+        </button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Buka Menu" id="mobile-nav-btn">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= 2. HERO SECTION ================= -->
+  <header id="beranda" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content reveal-left">
+        <div class="hero-badge">
+          <i data-lucide="globe"></i>
+          <span>Pembelajaran IPS Interaktif</span>
+        </div>
+        <h1 class="hero-title">
+          Antar Ruang & Waktu: <br>
+          <span>Sejarah Gedung Sate</span>
+        </h1>
+        <p class="hero-subtitle">
+          Menelusuri perubahan ruang dan waktu melalui perkembangan arsitektur Gedung Sate serta tata guna lahan kawasan sekitarnya dari masa kolonial 1920 hingga masa kini.
+        </p>
+        <div class="hero-buttons">
+          <a href="#materi" class="btn btn-primary" id="btn-learn">
+            Mulai Belajar
+            <i data-lucide="arrow-right"></i>
+          </a>
+          <a href="#galeri" class="btn btn-accent" id="btn-gallery">
+            Lihat Galeri
+            <i data-lucide="image"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="hero-image-wrapper reveal-right">
+        <div class="hero-image-glow"></div>
+        <div class="hero-image-card">
+          <img src="https://images.weserv.nl/?url=https://idetrips.com/wp-content/uploads/2018/10/Tempat-Wisata-di-Bandung-Gambar-Gedung-Sate.jpg" alt="Foto Asli Gedung Sate Bandung Megah" id="img-hero">
+        </div>
+      </div>
+    </div>
+    
+    <a href="#pengantar" class="scroll-down" id="scroll-arrow">
+      <span>Scroll ke Bawah</span>
+      <i data-lucide="chevrons-down"></i>
+    </a>
+  </header>
+
+  <!-- ================= 3. PENGANTAR SINGKAT ================= -->
+  <section id="pengantar" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-subtitle">Pengantar Konsep</span>
+        <h2 class="section-title">Bagaimana Ruang & Waktu Berkaitan?</h2>
+        <p class="section-desc">Setiap aktivitas manusia senantiasa terjadi dalam dimensi ruang dan waktu. Keduanya tidak dapat dipisahkan dan saling memengaruhi perjalanan sejarah peradaban.</p>
+      </div>
+      
+      <div class="pengantar-container">
+        <!-- Antar Ruang Card -->
+        <div class="glass-card pengantar-card reveal-left">
+          <div class="pengantar-icon">
+            <i data-lucide="map-pin"></i>
+          </div>
+          <h3 class="pengantar-title">Dimensi Ruang (Spasial)</h3>
+          <p class="pengantar-desc">
+            Ruang adalah wadah dari seluruh permukaan bumi yang digunakan makhluk hidup untuk tinggal. Karakteristik ruang yang berbeda antar wilayah menciptakan interaksi konektivitas, saling ketergantungan, dan perpindahan baik berupa barang, jasa, maupun manusia.
+          </p>
+        </div>
+        
+        <!-- Antar Waktu Card -->
+        <div class="glass-card pengantar-card reveal-right">
+          <div class="pengantar-icon">
+            <i data-lucide="clock"></i>
+          </div>
+          <h3 class="pengantar-title">Dimensi Waktu (Temporal)</h3>
+          <p class="pengantar-desc">
+            Waktu merupakan seluruh rangkaian proses ketika proses keadaaan berlangsung. Konsep waktu meliputi kelangsungan masa lalu, masa kini, dan masa depan. Waktu menunjukkan bagaimana suatu ruang mengalami dinamika perubahan dan keberlanjutan.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 4. HALAMAN MATERI ================= -->
+  <section id="materi" class="section" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-subtitle">Materi Lengkap</span>
+        <h2 class="section-title">Konektivitas Antar Ruang & Waktu</h2>
+        <p class="section-desc">Memahami konsep dasar Geografi-Sejarah agar kita lebih peka terhadap perubahan lingkungan di sekitar kita.</p>
+      </div>
+      
+      <div class="materi-grid">
+        <!-- Pengertian Ruang -->
+        <div class="glass-card materi-card reveal">
+          <div class="materi-header">
+            <span class="materi-badge">Spasial</span>
+            <h3>Konsep Antar Ruang</h3>
+          </div>
+          <p>Memahami bumi sebagai jaringan tempat tinggal yang unik dengan keanekaragaman kondisi fisik dan sosial.</p>
+          <ul class="materi-list">
+            <li><i data-lucide="check-circle-2"></i><span><strong>Definisi:</strong> Tempat di permukaan bumi, baik sebagian maupun keseluruhan.</span></li>
+            <li><i data-lucide="check-circle-2"></i><span><strong>Karakteristik:</strong> Perbedaan tanah, iklim, air, fauna, dan budaya masyarakat.</span></li>
+            <li><i data-lucide="check-circle-2"></i><span><strong>Contoh:</strong> Penduduk pegunungan membeli ikan dari pesisir pantai karena perbedaan komoditas.</span></li>
+          </ul>
+        </div>
+        
+        <!-- Pengertian Waktu -->
+        <div class="glass-card materi-card reveal" style="transition-delay: 0.1s;">
+          <div class="materi-header">
+            <span class="materi-badge">Temporal</span>
+            <h3>Konsep Antar Waktu</h3>
+          </div>
+          <p>Mengkaji perubahan-perubahan kecil maupun revolusioner yang dialami masyarakat dari satu periode ke periode berikutnya.</p>
+          <ul class="materi-list">
+            <li><i data-lucide="check-circle-2"></i><span><strong>Definisi:</strong> Satuan kesinambungan jalannya peristiwa (detik, hari, era).</span></li>
+            <li><i data-lucide="check-circle-2"></i><span><strong>Karakteristik:</strong> Adanya perkembangan, kesinambungan, pengulangan, dan perubahan.</span></li>
+            <li><i data-lucide="check-circle-2"></i><span><strong>Contoh:</strong> Transformasi alat transportasi dari delman bertenaga kuda menjadi kereta cepat bertenaga listrik.</span></li>
+          </ul>
+        </div>
+        
+        <!-- Hubungan Keduanya -->
+        <div class="glass-card materi-card reveal" style="transition-delay: 0.2s;">
+          <div class="materi-header">
+            <span class="materi-badge">Integrasi</span>
+            <h3>Hubungan Ruang & Waktu</h3>
+          </div>
+          <p>Ruang memberikan tempat terjadinya peristiwa, sedangkan waktu memberikan batasan kronologis peristiwa itu sendiri.</p>
+          <ul class="materi-list">
+            <li><i data-lucide="check-circle-2"></i><span><strong>Keterkaitan:</strong> Setiap kejadian sejarah terikat oleh batas lokasi spasial dan penanggalan temporal.</span></li>
+            <li><i data-lucide="check-circle-2"></i><span><strong>Dampak Wilayah:</strong> Modernisasi waktu mempersempit jarak ruang (karena internet & transportasi).</span></li>
+            <li><i data-lucide="check-circle-2"></i><span><strong>Dinamika Tata Ruang:</strong> Alih fungsi lahan pertanian menjadi perkotaan seiring berjalannya waktu.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 5. STUDI KASUS: TIMELINE ================= -->
+  <section id="studi-kasus" class="section timeline-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-subtitle">Studi Kasus IPS</span>
+        <h2 class="section-title">Sejarah & Perkembangan Gedung Sate</h2>
+        <p class="section-desc">Gedung Sate Bandung merupakan contoh nyata bagaimana fungsi sebuah ruang fisik berubah drastis sepanjang lintasan waktu sejarah Indonesia.</p>
+      </div>
+      
+      <div class="timeline-wrapper reveal">
+        <!-- Horizontal Timeline Bar Links -->
+        <div class="timeline-nav">
+          <div class="timeline-line">
+            <div class="timeline-progress"></div>
+          </div>
+          
+          <button class="timeline-node active" data-index="0" aria-label="Tahun 1920">
+            <div class="timeline-dot">1920</div>
+            <span class="timeline-label">Masa Kolonial</span>
+          </button>
+          
+          <button class="timeline-node" data-index="1" aria-label="Tahun 1945">
+            <div class="timeline-dot">1945</div>
+            <span class="timeline-label">Kemerdekaan</span>
+          </button>
+          
+          <button class="timeline-node" data-index="2" aria-label="Tahun 2025">
+            <div class="timeline-dot">2025</div>
+            <span class="timeline-label">Masa Modern</span>
+          </button>
+        </div>
+        
+        <!-- Timeline Content Panels -->
+        <div class="timeline-content-area">
+          
+          <!-- Panel 1: 1920 (Colonial) -->
+          <div class="timeline-panel glass-card active" id="panel-0">
+            <div class="timeline-img">
+              <img src="https://images.weserv.nl/?url=https://www.jakartamu.com/wp-content/uploads/2025/02/WhatsApp-Image-2025-02-26-at-04.01.21.jpeg" alt="Foto Kolonial Departement van Gouvernementsbedrijven Tahun 1920">
+            </div>
+            <div class="timeline-info">
+              <span class="timeline-year-tag">1920</span>
+              <h3 class="timeline-panel-title">Masa Kolonial Belanda (Gouvernements Bedrijven)</h3>
+              <p class="timeline-panel-desc">
+                Peletakan batu pertama dilakukan pada 27 Juli 1920 oleh Johanna Catherina Coops (putri sulung Walikota Bandung). Dirancang oleh tim arsitek yang diketuai J. Gerber, bangunan ini awalnya diproyeksikan sebagai pusat administrasi instansi pemerintahan (BUMN) kolonial Hindia Belanda. Desain menggabungkan arsitektur Renaissance Italia, jendela Moor Spanyol, dan atap pagoda Asia.
+              </p>
+              <div class="timeline-meta-grid">
+                <div class="timeline-meta-item">
+                  <i data-lucide="user"></i>
+                  <span>Arsitek: J. Gerber</span>
+                </div>
+                <div class="timeline-meta-item">
+                  <i data-lucide="help-circle"></i>
+                  <span>Fungsi: Departemen BUMN</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Panel 2: 1945 (Kemerdekaan) -->
+          <div class="timeline-panel glass-card" id="panel-1">
+            <div class="timeline-img">
+              <img src="https://images.weserv.nl/?url=https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfO5Wm1HYrYnTkbtgNh8P5ca-aq7rTMD-TJT54_dpsdq6PqaP4BMAq9olM4dErm-TME5TWfyY3SJ5-R3C9bF-6sSs4wCdwvTrYA-lioBKuOujQa63Tv0Ng4t9Mdb69X0rMmZej4vJpFwqRcAeJKwtK8ULei2ylqBk3ZIn9BlaRqhQ-AB5n1cjXF4-K/s627/gd%20sate.jpg" alt="Arsip Foto Sejarah Gedung Sate">
+            </div>
+            <div class="timeline-info">
+              <span class="timeline-year-tag">1945</span>
+              <h3 class="timeline-panel-title">Perebutan & Awal Kemerdekaan RI</h3>
+              <p class="timeline-panel-desc">
+                Pasca Proklamasi, Gedung Sate diambil alih oleh Departemen Pekerjaan Umum RI. Pada 3 Desember 1945, terjadi pertempuran heroik melawan tentara Sekutu (Gurkha) yang disokong NICA. Tujuh pemuda pejuang PU gugur mempertahankan gedung ini. Peristiwa ini diperingati dengan monumen batu di halaman depan untuk mengenang patriotisme mereka.
+              </p>
+              <div class="timeline-meta-grid">
+                <div class="timeline-meta-item">
+                  <i data-lucide="swords"></i>
+                  <span>Pertempuran: 3 Des 1945</span>
+                </div>
+                <div class="timeline-meta-item">
+                  <i data-lucide="award"></i>
+                  <span>Gugur: 7 Pemuda PU</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Panel 3: 2025 (Modern) -->
+          <div class="timeline-panel glass-card" id="panel-2">
+            <div class="timeline-img">
+              <img src="https://images.weserv.nl/?url=https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/ca/76/1e/frontage.jpg?w=1200&h=-1&s=1" alt="Foto Lanskap Modern Gedung Sate Bandung">
+            </div>
+            <div class="timeline-info">
+              <span class="timeline-year-tag">2025</span>
+              <h3 class="timeline-panel-title">Pusat Pemerintahan Provinsi Jawa Barat</h3>
+              <p class="timeline-panel-desc">
+                Saat ini, Gedung Sate berfungsi sebagai kantor Gubernur dan sekretariat daerah Jawa Barat. Wilayah sekitarnya berkembang pesat menjadi pusat administratif, taman rekreasi warga, dan destinasi wisata sejarah global. Dilengkapi museum digital interaktif berteknologi tinggi di area basement untuk mengedukasi generasi muda.
+              </p>
+              <div class="timeline-meta-grid">
+                <div class="timeline-meta-item">
+                  <i data-lucide="building-2"></i>
+                  <span>Fungsi: Kantor Gubernur Jabar</span>
+                </div>
+                <div class="timeline-meta-item">
+                  <i data-lucide="sparkles"></i>
+                  <span>Fasilitas: Museum Digital</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 6. STATISTIK DATA DAN FAKTA ================= -->
+  <section id="statistik" class="section stats-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-subtitle">Data & Statistik</span>
+        <h2 class="section-title">Gedung Sate dalam Angka</h2>
+        <p class="section-desc">Fakta-fakta numerik penting yang merangkum sejarah panjang, arsitektur, dan eksistensi Gedung Sate di Kota Bandung.</p>
+      </div>
+      
+      <div class="stats-grid">
+        <!-- Stat Card 1 -->
+        <div class="glass-card stats-card reveal" style="transition-delay: 0s;">
+          <div class="stats-icon"><i data-lucide="calendar"></i></div>
+          <div class="stats-number" data-target="1920" data-suffix="">0</div>
+          <div class="stats-label">Tahun Peletakan Batu Pertama</div>
+        </div>
+        <!-- Stat Card 2 -->
+        <div class="glass-card stats-card reveal" style="transition-delay: 0.1s;">
+          <div class="stats-icon"><i data-lucide="layers"></i></div>
+          <div class="stats-number" data-target="2.4" data-suffix=" Ha">0</div>
+          <div class="stats-label">Luas Kompleks Bangunan</div>
+        </div>
+        <!-- Stat Card 3 -->
+        <div class="glass-card stats-card reveal" style="transition-delay: 0.2s;">
+          <div class="stats-icon"><i data-lucide="shapes"></i></div>
+          <div class="stats-number" data-target="6" data-suffix=" Buah">0</div>
+          <div class="stats-label">Jumlah Ornamen Tusuk Sate</div>
+        </div>
+        <!-- Stat Card 4 -->
+        <div class="glass-card stats-card reveal" style="transition-delay: 0.3s;">
+          <div class="stats-icon"><i data-lucide="users"></i></div>
+          <div class="stats-number" data-target="100000" data-suffix="+">0</div>
+          <div class="stats-label">Pengunjung Museum / Tahun</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 7. ANALISIS ANTAR RUANG DAN WAKTU ================= -->
+  <section id="analisis" class="section" style="background: var(--bg-primary);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-subtitle">Analisis Kritis</span>
+        <h2 class="section-title">Transformasi Wilayah Gedung Sate</h2>
+        <p class="section-desc">Mengkaji bagaimana dinamika ruang geografis Bandung mengalami evolusi struktural seiring waktu akibat modernisasi dan pertumbuhan urban.</p>
+      </div>
+      
+      <div class="analysis-grid">
+        <!-- Analisis 1 -->
+        <div class="glass-card analysis-card reveal-left">
+          <div class="analysis-num-box">01</div>
+          <div class="analysis-content">
+            <h3>Perubahan Fungsi Utama Ruang</h3>
+            <p>Dari kantor pusat instansi teknis kolonial Belanda (*Gouvernements Bedrijven*) menjadi simbol kedudukan politik dan pusat birokrasi pemerintahan Provinsi Jawa Barat. Perubahan ini turut menggeser dinamika sosial warga sekitar dari pekerja administratif kolonial menjadi masyarakat merdeka yang aktif berdemokrasi.</p>
+          </div>
+        </div>
+        
+        <!-- Analisis 2 -->
+        <div class="glass-card analysis-card reveal-right">
+          <div class="analysis-num-box">02</div>
+          <div class="analysis-content">
+            <h3>Alih Fungsi Lahan (Land Use Change)</h3>
+            <p>Pada awal tahun 1920-an, kawasan sekitarnya didominasi persawahan, ladang subur, dan perbukitan sunyi. Kini, dalam rentang waktu satu abad, area tersebut berubah total menjadi kawasan terbangun padat perkotaan (Central Business District), jaringan jalan aspal lebar, kompleks perkantoran modern, dan komersial.</p>
+          </div>
+        </div>
+        
+        <!-- Analisis 3 -->
+        <div class="glass-card analysis-card reveal-left">
+          <div class="analysis-num-box">03</div>
+          <div class="analysis-content">
+            <h3>Dampak Aksesibilitas & Transportasi</h3>
+            <p>Dahulu, akses ke Gedung Sate sangat terbatas menggunakan dokar, sepeda, atau jalan kaki melalui jalur perdesaan. Seiring waktu, pembangunan jalan Diponegoro dan sistem transportasi publik terpadu di Bandung mempermudah konektivitas spasial warga dari luar kota untuk berwisata atau mengurus administrasi.</p>
+          </div>
+        </div>
+        
+        <!-- Analisis 4 -->
+        <div class="glass-card analysis-card reveal-right">
+          <div class="analysis-num-box">04</div>
+          <div class="analysis-content">
+            <h3>Dampak Urbanisasi Kota Bandung</h3>
+            <p>Perluasan batas Kota Bandung berimbas pada penataan lingkungan Gedung Sate. Upaya pelestarian warisan budaya (heritage conservation) terus bergesekan dengan kebutuhan ruang parkir, infrastruktur perkotaan, dan desakan modernisasi fisik tata ruang di sekeliling cagar budaya nasional ini.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 8. GALERI INTERAKTIF ================= -->
+  <section id="galeri" class="section" style="background: var(--bg-secondary);">
+    <div class="container gallery-interactive-area">
+      
+      <!-- TIMELINE VISUAL -->
+      <div class="visual-timeline-container reveal">
+        <div class="section-header">
+          <span class="section-subtitle">Galeri Timeline</span>
+          <h2 class="section-title">Evolusi Visual Kawasan</h2>
+          <p class="section-desc">Klik tahun di bawah untuk melihat arsip foto sejarah kawasan Gedung Sate dari periode ke periode.</p>
+        </div>
+        
+        <div class="visual-timeline-tabs">
+          <button class="v-tab-btn active" data-year="1920">1920</button>
+          <button class="v-tab-btn" data-year="1945">1945</button>
+          <button class="v-tab-btn" data-year="1950">1950</button>
+          <button class="v-tab-btn" data-year="2000">2000</button>
+          <button class="v-tab-btn" data-year="2025">2025</button>
+        </div>
+        
+        <div class="visual-timeline-viewer glass-card">
+          <!-- Slide 1920 -->
+          <div class="v-slide active" id="slide-1920">
+            <div class="v-slide-img">
+              <img src="https://images.weserv.nl/?url=https://www.jakartamu.com/wp-content/uploads/2025/02/WhatsApp-Image-2025-02-26-at-04.01.21.jpeg" alt="Gedung Sate 1920 (Konstruksi)">
+            </div>
+            <div class="v-slide-content">
+              <h3>Periode 1920: Konstruksi</h3>
+              <p>Masa di mana Gedung Sate pertama kali dibangun oleh para pekerja pribumi di bawah arahan arsitek Belanda. Struktur bangunan mulai terlihat kokoh di tengah perbukitan Bandung utara yang masih sangat sepi dan berhawa dingin ekstrem.</p>
+            </div>
+          </div>
+          
+          <!-- Slide 1945 -->
+          <div class="v-slide" id="slide-1945">
+            <div class="v-slide-img">
+              <img src="https://images.weserv.nl/?url=https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfO5Wm1HYrYnTkbtgNh8P5ca-aq7rTMD-TJT54_dpsdq6PqaP4BMAq9olM4dErm-TME5TWfyY3SJ5-R3C9bF-6sSs4wCdwvTrYA-lioBKuOujQa63Tv0Ng4t9Mdb69X0rMmZej4vJpFwqRcAeJKwtK8ULei2ylqBk3ZIn9BlaRqhQ-AB5n1cjXF4-K/s627/gd%20sate.jpg" alt="Gedung Sate Kemerdekaan 1945">
+            </div>
+            <div class="v-slide-content">
+              <h3>Periode 1945: Kemerdekaan</h3>
+              <p>Proses peralihan kekuasaan yang penuh gejolak fisik. Gambar merekam bendera Merah Putih pertama kali dikibarkan secara berani di atas atap Gedung Sate, menandai kemerdekaan Republik Indonesia yang berdaulat.</p>
+            </div>
+          </div>
+          
+          <!-- Slide 1950 -->
+          <div class="v-slide" id="slide-1950">
+            <div class="v-slide-img">
+              <img src="https://images.weserv.nl/?url=https://www.harapanrakyat.com/wp-content/uploads/2023/12/Sejarah-2.jpg" alt="Ornamen Gedung Sate Pasca Kemerdekaan">
+            </div>
+            <div class="v-slide-content">
+              <h3>Periode 1950: Pasca Kemerdekaan</h3>
+              <p>Gedung Sate mulai dinormalisasi fungsinya sebagai bangunan penting kementerian pekerjaan umum. Penataan taman depan mulai dilakukan dengan menanam pohon rindang, mengubah atmosfer militer menjadi pusat administrasi sipil yang tenang.</p>
+            </div>
+          </div>
+          
+          <!-- Slide 2000 -->
+          <div class="v-slide" id="slide-2000">
+            <div class="v-slide-img">
+              <img src="https://images.weserv.nl/?url=https://pbs.twimg.com/media/Ed8GH-kUYAAfkA-.jpg" alt="Bandung Tahun 2000">
+            </div>
+            <div class="v-slide-content">
+              <h3>Periode 2000: Era Millenium</h3>
+              <p>Gedung Sate telah dikukuhkan sebagai Kantor Gubernur Jawa Barat secara kokoh. Kawasan sekitarnya (seperti Gasibu dan Jalan Diponegoro) mulai berkembang menjadi pusat keramaian pasar kaget mingguan dan aksi unjuk rasa warga.</p>
+            </div>
+          </div>
+          
+          <!-- Slide 2025 -->
+          <div class="v-slide" id="slide-2025">
+            <div class="v-slide-img">
+              <img src="https://images.weserv.nl/?url=https://assets.pikiran-rakyat.com/crop/0x0:0x0/1200x675/photo/2025/11/27/4230949182.jpg" alt="Gedung Sate Modern">
+            </div>
+            <div class="v-slide-content">
+              <h3>Periode 2025: Smart Landmark</h3>
+              <p>Landmark sejarah legendaris yang kini dikelola secara pintar (Smart Building). Taman ramah lingkungan, instalasi pencahayaan artistik malam hari, serta integrasi teknologi museum virtual AR (Augmented Reality) di dalamnya.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BEFORE AFTER SLIDER -->
+      <div class="slider-wrapper reveal">
+        <div class="section-header">
+          <span class="section-subtitle">Perbandingan Visual</span>
+          <h2 class="section-title">Dulu vs Sekarang (Spasio-Temporal)</h2>
+          <p class="section-desc">Geser garis pembatas di tengah gambar ke kiri atau ke kanan untuk membandingkan perubahan fisik eksterior Gedung Sate zaman dahulu dan masa kini.</p>
+        </div>
+        
+        <div class="before-after-slider">
+          <!-- Image Before (Colonial) -->
+          <div class="slider-img img-before slider-resize">
+            <img src="https://images.weserv.nl/?url=https://www.jakartamu.com/wp-content/uploads/2025/02/WhatsApp-Image-2025-02-26-at-04.01.21.jpeg" alt="Gedung Sate Tempo Dulu (1920)">
+            <span class="slider-label label-before">Tahun 1920 (Dulu)</span>
+          </div>
+          
+          <!-- Image After (Modern) -->
+          <div class="slider-img img-after">
+            <img src="https://images.weserv.nl/?url=https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/ca/76/1e/frontage.jpg?w=1200&h=-1&s=1" alt="Gedung Sate Masa Kini (Modern)">
+            <span class="slider-label label-after">Tahun 2025 (Sekarang)</span>
+          </div>
+          
+          <!-- Drag Handle -->
+          <div class="slider-handle">
+            <i data-lucide="arrow-left-right"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHOTO GALLERY GRID MASONRY -->
+      <div class="masonry-gallery-container reveal">
+        <div class="section-header">
+          <span class="section-subtitle">Koleksi Dokumentasi</span>
+          <h2 class="section-title">Galeri Foto Cagar Budaya</h2>
+          <p class="section-desc">Klik pada salah satu foto arsitektur dan aktivitas Gedung Sate di bawah untuk memperbesar gambar dalam mode Lightbox.</p>
+        </div>
+        
+        <div class="masonry-grid">
+          <!-- Item 1 -->
+          <div class="masonry-item">
+            <img src="https://images.weserv.nl/?url=https://assets.pikiran-rakyat.com/crop/0x0:0x0/1200x675/photo/2025/11/27/4230949182.jpg" alt="Gedung Sate Bandung Modern">
+            <div class="masonry-overlay">
+              <h3 class="masonry-title">Tampak Depan Megah</h3>
+              <p class="masonry-desc">Landmark ikonik Bandung di bawah langit biru cerah.</p>
+            </div>
+          </div>
+          <!-- Item 2 -->
+          <div class="masonry-item">
+            <img src="https://images.weserv.nl/?url=https://www.jakartamu.com/wp-content/uploads/2025/02/WhatsApp-Image-2025-02-26-at-04.01.21.jpeg" alt="Arsip Konstruksi Gedung Sate 1920">
+            <div class="masonry-overlay">
+              <h3 class="masonry-title">Arsip Pembangunan 1920</h3>
+              <p class="masonry-desc">Pondasi kokoh masa pemerintahan Hindia Belanda.</p>
+            </div>
+          </div>
+          <!-- Item 3 -->
+          <div class="masonry-item">
+            <img src="https://images.weserv.nl/?url=https://www.harapanrakyat.com/wp-content/uploads/2023/12/Sejarah-2.jpg" alt="Ornamen Atap Tusuk Sate">
+            <div class="masonry-overlay">
+              <h3 class="masonry-title">Detail Ornamen Atap</h3>
+              <p class="masonry-desc">6 tusuk sate melambangkan biaya 6 juta Gulden.</p>
+            </div>
+          </div>
+          <!-- Item 4 -->
+          <div class="masonry-item">
+            <img src="https://images.weserv.nl/?url=https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfO5Wm1HYrYnTkbtgNh8P5ca-aq7rTMD-TJT54_dpsdq6PqaP4BMAq9olM4dErm-TME5TWfyY3SJ5-R3C9bF-6sSs4wCdwvTrYA-lioBKuOujQa63Tv0Ng4t9Mdb69X0rMmZej4vJpFwqRcAeJKwtK8ULei2ylqBk3ZIn9BlaRqhQ-AB5n1cjXF4-K/s627/gd%20sate.jpg" alt="Perspektif Hero Gedung Sate">
+            <div class="masonry-overlay">
+              <h3 class="masonry-title">Perspektif Golden Hour</h3>
+              <p class="masonry-desc">Pantulan cahaya jingga hangat matahari terbenam.</p>
+            </div>
+          </div>
+          <!-- Item 5 -->
+          <div class="masonry-item">
+            <img src="https://images.unsplash.com/photo-1596422846543-75c6fc18a52b?auto=format&fit=crop&w=800&q=80" alt="Jalanan Sekitar Bandung">
+            <div class="masonry-overlay">
+              <h3 class="masonry-title">Pemandangan Kota Bandung</h3>
+              <p class="masonry-desc">Dinamika aktivitas warga di sekitar pusat kota.</p>
+            </div>
+          </div>
+          <!-- Item 6 -->
+          <div class="masonry-item">
+            <img src="https://images.unsplash.com/photo-1582555762489-41aa844ebb97?auto=format&fit=crop&w=800&q=80" alt="Arsitektur Detail Kolonial">
+            <div class="masonry-overlay">
+              <h3 class="masonry-title">Detail Arsitektur Pilar</h3>
+              <p class="masonry-desc">Perpaduan gaya kolonial Eropa dan tradisional Nusantara.</p>
+            </div>
+          </div>
+          <!-- Item 7 -->
+          <div class="masonry-item">
+            <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=800&q=80" alt="Interactive Museum Inside">
+            <div class="masonry-overlay">
+              <h3 class="masonry-title">Museum Gedung Sate</h3>
+              <p class="masonry-desc">Fasilitas pameran edukasi digital interaktif untuk pelajar.</p>
+            </div>
+          </div>
+          <!-- Item 8 -->
+          <div class="masonry-item">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Taman Depan Asri">
+            <div class="masonry-overlay">
+              <h3 class="masonry-title">Taman Depan Plaza</h3>
+              <p class="masonry-desc">Ruang terbuka publik hijau yang asri dan rindang.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PETA LOKASI INTERAKTIF -->
+      <div class="map-container-wrapper reveal">
+        <div class="section-header">
+          <span class="section-subtitle">Dimensi Lokasi</span>
+          <h2 class="section-title">Peta Koordinat Geografis</h2>
+          <p class="section-desc">Gunakan peta interaktif OpenStreetMap berikut untuk melihat titik koordinat absolut lokasi Gedung Sate di Kota Bandung secara akurat.</p>
+        </div>
+        
+        <!-- Map element holder -->
+        <div id="map-leaflet" class="leaflet-map-element"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= LIGHTBOX ZOOM PREVIEW MODAL ================= -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button class="lightbox-close" aria-label="Tutup Galeri"><i data-lucide="x"></i></button>
+    <button class="lightbox-btn lightbox-prev" aria-label="Gambar Sebelumnya"><i data-lucide="chevron-left"></i></button>
+    
+    <div class="lightbox-content">
+      <img src="" alt="" class="lightbox-img">
+      <div class="lightbox-caption">
+        <h4 class="lightbox-title">Judul Gambar</h4>
+        <p class="lightbox-desc">Deskripsi penjelas gambar.</p>
+      </div>
+    </div>
+    
+    <button class="lightbox-btn lightbox-next" aria-label="Gambar Selanjutnya"><i data-lucide="chevron-right"></i></button>
+  </div>
+
+  <!-- ================= 9. PROFIL TIM ================= -->
+  <section id="tim" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-subtitle">Kolaborator</span>
+        <h2 class="section-title">Anggota Kelompok Pengembang</h2>
+        <p class="section-desc">Tim kreatif di balik pengembangan portal media pembelajaran interaktif IPS bertema Antar Ruang dan Waktu.</p>
+      </div>
+      
+      <div class="reveal">
+        <div class="team-grid">
+          <!-- Member 1 -->
+          <div class="glass-card team-card">
+            <div class="team-avatar">
+              <div class="team-avatar-inner">
+                <img src="./profile/rahma.jpeg" alt="Foto Rahma Adawiyyah">
+              </div>
+            </div>
+            <h3 class="team-name">Rahma Adawiyyah</h3>
+            <p class="team-role">Penanggung Jawab Pembuatan Web</p>
+            <span class="team-nim">01</span>
+          </div>
+          
+          <!-- Member 2 -->
+          <div class="glass-card team-card">
+            <div class="team-avatar">
+              <div class="team-avatar-inner">
+                <img src="./profile/ajeng.jpeg" alt="Foto Ajeng Noer Pratiwi">
+              </div>
+            </div>
+            <h3 class="team-name">Ajeng Noer Pratiwi</h3>
+            <p class="team-role">Penanggung Jawab Laporan</p>
+            <span class="team-nim">02</span>
+          </div>
+          
+          <!-- Member 3 -->
+          <div class="glass-card team-card">
+            <div class="team-avatar">
+              <div class="team-avatar-inner">
+                <img src="./profile/vizky.jpeg" alt="Foto Vizky Ibrahim Triantama">
+              </div>
+            </div>
+            <h3 class="team-name">Vizky Ibrahim Triantama</h3>
+            <p class="team-role">Penanggung Jawab Materi </p>
+            <span class="team-nim">03</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 10. FOOTER ================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Info -->
+        <div class="footer-info">
+          <h3><i data-lucide="compass"></i> Ruang & Waktu</h3>
+          <p>
+            Portal pembelajaran geografi sejarah yang didedikasikan untuk meningkatkan literasi spasial siswa-siswi Indonesia.
+          </p>
+        </div>
+        
+        <!-- Sumber Data -->
+        <div class="footer-links">
+          <h4 class="footer-links-title">Sumber Data & Arsip</h4>
+          <ul class="footer-sources-list">
+            <li><i data-lucide="check"></i>BPS Kota Bandung 2024</li>
+            <li><i data-lucide="check"></i>Pemerintah Prov Jabar</li>
+            <li><i data-lucide="check"></i>Arsip Nasional RI (ANRI)</li>
+            <li><i data-lucide="check"></i>Google Earth Pro</li>
+            <li><i data-lucide="check"></i>OpenStreetMap</li>
+            <li><i data-lucide="check"></i>Pikiran Rakyat Archive</li>
+            <li><i data-lucide="check"></i>Humas Gedung Sate</li>
+          </ul>
+        </div>
+        
+        <!-- Cepat Link -->
+        <div class="footer-links">
+          <h4 class="footer-links-title">Peta Situs</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#pengantar">Konsep Ruang & Waktu</a></li>
+            <li><a href="#materi">Materi IPS Lengkap</a></li>
+            <li><a href="#studi-cases">Studi Kasus Gedung Sate</a></li>
+            <li><a href="#galeri">Galeri Slider & Peta</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          &copy; 2026 Media Edukasi Interaktif "Antar Ruang & Waktu". Hak Cipta Dilindungi.
+        </p>
+        <p class="footer-group">
+          Dikembangkan oleh: <span>Kelompok 3 Kelas IPS-C</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= SCRIPTS LOAD ================= -->
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- LeafletJS Map Library -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  
+  <!-- Custom Site JS script -->
+  <script src="script.js"></script>
+</body>
+</html>
